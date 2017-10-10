@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.IO;
-//using Microsoft.Win32;
+using Microsoft.Win32;
 
 namespace USBlocker
 {
@@ -80,6 +80,47 @@ namespace USBlocker
         private void pb_unlock_MouseLeave(object sender, EventArgs e)
         {
             pb_unlock.ImageLocation = @"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_unlock.png";
+        }
+
+        private void pb_clear_Click(object sender, EventArgs e)
+        {
+            string[] keys = {
+                                "SYSTEM\\ControlSet001\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
+                                "SYSTEM\\ControlSet002\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
+                                "SYSTEM\\CurrentControlSet\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
+                                "SYSTEM\\CurrentControlSet\\Enum\\USBSTOR",
+                                "SYSTEM\\ControlSet001\\Enum\\USBSTOR",
+                                "SYSTEM\\ControlSet002\\Enum\\USBSTOR"
+                            };
+            RegistryKey reg;
+
+            foreach (string k in keys)
+            {
+                try
+                {
+                    reg = Registry.CurrentUser.OpenSubKey(k, true);
+                    if (reg != null)
+                    {
+                        foreach (string name in reg.GetSubKeyNames())
+                        {
+                            if (k.Contains("Enum") && !name.StartsWith("Disk"))
+                            {
+                                continue;
+                            }
+                            reg.DeleteSubKeyTree(name, true);
+                        }
+                    }
+                    else MessageBox.Show("null");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("catch");
+                }
+                finally
+                {
+                    MessageBox.Show("finally");
+                }
+            }
         }
     }
 }

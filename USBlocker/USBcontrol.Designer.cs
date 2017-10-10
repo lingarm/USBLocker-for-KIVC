@@ -45,26 +45,30 @@
             this.lb_2_2 = new System.Windows.Forms.Label();
             this.lb_2_1 = new System.Windows.Forms.Label();
             this.gb_3 = new System.Windows.Forms.GroupBox();
+            this.pb_unlock = new System.Windows.Forms.PictureBox();
             this.pb_lock = new System.Windows.Forms.PictureBox();
             this.lb_3_1 = new System.Windows.Forms.Label();
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.menu_tray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pb_unlock = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.gb_1_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_clear)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.gb_2.SuspendLayout();
             this.gb_3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_lock)).BeginInit();
             this.menu_tray.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_1_1
             // 
             this.gb_1_1.BackColor = System.Drawing.Color.Transparent;
+            this.gb_1_1.Controls.Add(this.label2);
+            this.gb_1_1.Controls.Add(this.label1);
             this.gb_1_1.Controls.Add(this.pb_clear);
             this.gb_1_1.Controls.Add(this.lb_1_2);
             this.gb_1_1.Controls.Add(this.lb_1);
@@ -86,6 +90,7 @@
             this.pb_clear.Size = new System.Drawing.Size(110, 73);
             this.pb_clear.TabIndex = 1;
             this.pb_clear.TabStop = false;
+            this.pb_clear.Click += new System.EventHandler(this.pb_clear_Click);
             this.pb_clear.MouseEnter += new System.EventHandler(this.pb_clear_MouseEnter);
             this.pb_clear.MouseLeave += new System.EventHandler(this.pb_clear_MouseLeave);
             this.pb_clear.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pb_clear_MouseUp);
@@ -95,7 +100,7 @@
             this.lb_1_2.AutoSize = true;
             this.lb_1_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_1_2.ForeColor = System.Drawing.Color.Firebrick;
-            this.lb_1_2.Location = new System.Drawing.Point(9, 40);
+            this.lb_1_2.Location = new System.Drawing.Point(9, 77);
             this.lb_1_2.Name = "lb_1_2";
             this.lb_1_2.Size = new System.Drawing.Size(252, 13);
             this.lb_1_2.TabIndex = 1;
@@ -220,13 +225,24 @@
             this.gb_3.TabStop = false;
             this.gb_3.Text = "3. Заблокувати USB порти";
             // 
+            // pb_unlock
+            // 
+            this.pb_unlock.Image = ((System.Drawing.Image)(resources.GetObject("pb_unlock.Image")));
+            this.pb_unlock.Location = new System.Drawing.Point(202, 18);
+            this.pb_unlock.Name = "pb_unlock";
+            this.pb_unlock.Size = new System.Drawing.Size(109, 73);
+            this.pb_unlock.TabIndex = 2;
+            this.pb_unlock.TabStop = false;
+            this.pb_unlock.MouseEnter += new System.EventHandler(this.pb_unlock_MouseEnter);
+            this.pb_unlock.MouseLeave += new System.EventHandler(this.pb_unlock_MouseLeave);
+            // 
             // pb_lock
             // 
             this.pb_lock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_lock.Image = ((System.Drawing.Image)(resources.GetObject("pb_lock.Image")));
             this.pb_lock.Location = new System.Drawing.Point(358, 19);
             this.pb_lock.Name = "pb_lock";
-            this.pb_lock.Size = new System.Drawing.Size(110, 72);
+            this.pb_lock.Size = new System.Drawing.Size(110, 73);
             this.pb_lock.TabIndex = 1;
             this.pb_lock.TabStop = false;
             this.pb_lock.MouseEnter += new System.EventHandler(this.pb_lock_MouseEnter);
@@ -270,16 +286,27 @@
             this.довідкаToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.довідкаToolStripMenuItem.Text = "Довідка";
             // 
-            // pb_unlock
+            // label1
             // 
-            this.pb_unlock.Image = ((System.Drawing.Image)(resources.GetObject("pb_unlock.Image")));
-            this.pb_unlock.Location = new System.Drawing.Point(198, 1);
-            this.pb_unlock.Name = "pb_unlock";
-            this.pb_unlock.Size = new System.Drawing.Size(109, 98);
-            this.pb_unlock.TabIndex = 2;
-            this.pb_unlock.TabStop = false;
-            this.pb_unlock.MouseEnter += new System.EventHandler(this.pb_unlock_MouseEnter);
-            this.pb_unlock.MouseLeave += new System.EventHandler(this.pb_unlock_MouseLeave);
+            this.label1.AutoEllipsis = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(9, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(333, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Якщо ви маєте USB мишу або клавіатуру, керування тимчасово";
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(9, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(287, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "буде втрачено, та відновлено після перезавантаження.";
             // 
             // USBcontrol
             // 
@@ -306,9 +333,9 @@
             this.gb_2.PerformLayout();
             this.gb_3.ResumeLayout(false);
             this.gb_3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_lock)).EndInit();
             this.menu_tray.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,6 +365,8 @@
         private System.Windows.Forms.ToolStripLabel menu_developer;
         private System.Windows.Forms.PictureBox pb_lock;
         private System.Windows.Forms.PictureBox pb_unlock;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
