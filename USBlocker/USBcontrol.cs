@@ -24,7 +24,7 @@ namespace USBlocker
             check_status(path1, path2);
         }
 
-        /*Если нет обоих файлов - отключен return false. Если есть оба return true. Если только один - віключить второй и return false*/
+        /*Если нет обоих файлов - отключен return false. Если есть оба return true. Если только один - выключить второй и return false*/
         private void check_status(string p1, string p2)
         {
             if (!File.Exists(p1) && !File.Exists(p2))
@@ -32,6 +32,7 @@ namespace USBlocker
                 menu_status.Text = "Заборонено";
                 menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_0.png");
                 status = false;
+                set_UI();
                 //Добавить если только один - выключить второй и return false
             }
             else if (File.Exists(p1) && File.Exists(p2))
@@ -39,6 +40,26 @@ namespace USBlocker
                 menu_status.Text = "Дозволено";
                 menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_1.png");
                 status = true;
+                set_UI();
+            }
+        }
+
+        //Изменить текст и кнопки приложения в зависимости от статуса
+        private void set_UI()
+        {
+            if (status == true)
+            {
+                gb_3.Text = "3. Заблокувати USB порти";
+                lb_3_1.Text = "Зараз USB порти розблоковано. Натисніть, щоб заблокувати.";
+                pb_lock.Visible = true;
+                pb_unlock.Visible = false;
+            }
+            else
+            {
+                gb_3.Text = "3. Розблокувати USB порти";
+                lb_3_1.Text = "Зараз USB порти заблоковано. Натисніть, щоб розблокувати.";
+                pb_lock.Visible = false;
+                pb_unlock.Visible = true;
             }
         }
 
@@ -107,10 +128,9 @@ namespace USBlocker
                             {
                                 continue;
                             }
-                            reg.DeleteSubKeyTree(name, true);
+                            //reg.DeleteSubKeyTree(name, true);
                         }
                     }
-                    else MessageBox.Show("null");
                 }
                 catch (Exception)
                 {
@@ -121,6 +141,18 @@ namespace USBlocker
                     MessageBox.Show("finally");
                 }
             }
+        }
+
+        private void pb_lock_Click(object sender, EventArgs e)
+        {
+            status = false;
+            set_UI();
+        }
+
+        private void pb_unlock_Click(object sender, EventArgs e)
+        {
+            status = true;
+            set_UI();
         }
     }
 }
