@@ -1,8 +1,0 @@
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\bin\Release\USBlocker.exe
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\bin\Release\USBlocker.pdb
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.Auth.resources
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.USBcontrol.resources
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.Properties.Resources.resources
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.csproj.GenerateResource.Cache
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.exe
-C:\Users\Sunny\documents\visual studio 2010\Projects\USBlocker\USBlocker\obj\x86\Release\USBlocker.pdb

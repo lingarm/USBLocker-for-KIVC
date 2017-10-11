@@ -1,0 +1,8 @@
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\bin\Debug\USBFence.exe
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\bin\Debug\USBFence.pdb
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.Properties.Resources.resources
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.csproj.GenerateResource.Cache
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.exe
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.pdb
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.Auth.resources
+c:\users\sunny\documents\visual studio 2010\Projects\USBFence\USBFence\obj\x86\Debug\USBFence.Fence.resources
