@@ -14,8 +14,10 @@ namespace USBlocker
 {
     public partial class USBcontrol : Form
     {
-        static string path1 = @"C:\Windows\1\Usbstor.pnf";
-        static string path2 = @"C:\Windows\1\Usbstor.inf";
+        //static string path1 = @"%SystemRoot%\1\Usbstor.pnf";
+        //static string path2 = @"%SystemRoot%\1\Usbstor.inf";
+        static string path1 = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\1\Usbstor.pnf");
+        static string path2 = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\1\Usbstor.inf");
         private bool status;
 
         public USBcontrol()
@@ -29,16 +31,12 @@ namespace USBlocker
         {
             if (!File.Exists(p1) && !File.Exists(p2))
             {
-                menu_status.Text = "Заборонено";
-                menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_0.png");
                 status = false;
                 set_UI();
                 //Добавить если только один - выключить второй и return false
             }
             else if (File.Exists(p1) && File.Exists(p2))
             {
-                menu_status.Text = "Дозволено";
-                menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_1.png");
                 status = true;
                 set_UI();
             }
@@ -49,6 +47,8 @@ namespace USBlocker
         {
             if (status == true)
             {
+                menu_status.Text = "Дозволено";
+                menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_1.png");
                 gb_3.Text = "3. Заблокувати USB порти";
                 lb_3_1.Text = "Зараз USB порти розблоковано. Натисніть, щоб заблокувати.";
                 pb_lock.Visible = true;
@@ -56,6 +56,8 @@ namespace USBlocker
             }
             else
             {
+                menu_status.Text = "Заборонено";
+                menu_status.Image = Image.FromFile(@"C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBlocker\USBlocker\bt_status_0.png");
                 gb_3.Text = "3. Розблокувати USB порти";
                 lb_3_1.Text = "Зараз USB порти заблоковано. Натисніть, щоб розблокувати.";
                 pb_lock.Visible = false;
