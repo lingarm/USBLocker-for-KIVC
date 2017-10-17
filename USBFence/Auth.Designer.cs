@@ -59,7 +59,7 @@
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(88, 43);
             this.bt_close.TabIndex = 4;
-            this.bt_close.Text = "button2";
+            this.bt_close.Text = "Вихід";
             this.bt_close.UseVisualStyleBackColor = true;
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
             // 
@@ -69,7 +69,7 @@
             this.bt_ok.Name = "bt_ok";
             this.bt_ok.Size = new System.Drawing.Size(88, 43);
             this.bt_ok.TabIndex = 3;
-            this.bt_ok.Text = "button1";
+            this.bt_ok.Text = "Ok";
             this.bt_ok.UseVisualStyleBackColor = true;
             this.bt_ok.Click += new System.EventHandler(this.bt_ok_Click);
             // 

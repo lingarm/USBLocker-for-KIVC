@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.Win32;
 using System.Resources;
+using System.Security.AccessControl;
 
 namespace USBFence
 {
@@ -108,17 +109,29 @@ namespace USBFence
                                 "SYSTEM\\ControlSet001\\Enum\\USBSTOR",
                                 "SYSTEM\\ControlSet002\\Enum\\USBSTOR"
                             };
-            RegistryKey reg;
+            string user = Environment.UserDomainName + "\\" + Environment.UserName;
+            RegistryKey reg = null;
+            RegistrySecurity rs = new RegistrySecurity();
+            rs.AddAccessRule(
+                        new RegistryAccessRule(user,
+                        RegistryRights.Delete,
+                        InheritanceFlags.None,
+                        PropagationFlags.None,
+                        AccessControlType.Allow
+            ));
 
             foreach (string k in keys)
             {
                 try
                 {
-                    reg = Registry.CurrentUser.OpenSubKey(k, true);
+                    reg = Registry.LocalMachine.OpenSubKey(k, true);
+                    reg.SetAccessControl(rs);
+                    //MessageBox.Show("Permission changed");
                     if (reg != null)
                     {
                         foreach (string name in reg.GetSubKeyNames())
                         {
+                            //MessageBox.Show(name);
                             if (k.Contains("Enum") && !name.StartsWith("Disk"))
                             {
                                 continue;
@@ -128,13 +141,13 @@ namespace USBFence
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("catch");
+                    MessageBox.Show(ex.Message);
                 }
                 finally
                 {
-                    MessageBox.Show("finally");
+                    //MessageBox.Show("finally");
                 }
             }
         }
