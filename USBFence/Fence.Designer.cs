@@ -33,10 +33,13 @@
             this.gb_1_1 = new System.Windows.Forms.GroupBox();
             this.lb_1_3 = new System.Windows.Forms.Label();
             this.lb_1_2 = new System.Windows.Forms.Label();
+            this.pb_clear = new System.Windows.Forms.PictureBox();
             this.lb_1_4 = new System.Windows.Forms.Label();
             this.lb_1_1 = new System.Windows.Forms.Label();
             this.lb_2_3 = new System.Windows.Forms.Label();
             this.gb_3 = new System.Windows.Forms.GroupBox();
+            this.pb_unlock = new System.Windows.Forms.PictureBox();
+            this.pb_lock = new System.Windows.Forms.PictureBox();
             this.lb_3_1 = new System.Windows.Forms.Label();
             this.lb_2_2 = new System.Windows.Forms.Label();
             this.lb_2_1 = new System.Windows.Forms.Label();
@@ -45,9 +48,6 @@
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.gb_2 = new System.Windows.Forms.GroupBox();
-            this.pb_clear = new System.Windows.Forms.PictureBox();
-            this.pb_unlock = new System.Windows.Forms.PictureBox();
-            this.pb_lock = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menu_about = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,12 +56,12 @@
             this.menu_status_text = new System.Windows.Forms.ToolStripLabel();
             this.menu_status = new System.Windows.Forms.ToolStripLabel();
             this.gb_1_1.SuspendLayout();
-            this.gb_3.SuspendLayout();
-            this.menu_tray.SuspendLayout();
-            this.gb_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_clear)).BeginInit();
+            this.gb_3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_lock)).BeginInit();
+            this.menu_tray.SuspendLayout();
+            this.gb_2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,19 @@
             this.lb_1_2.Size = new System.Drawing.Size(333, 13);
             this.lb_1_2.TabIndex = 0;
             this.lb_1_2.Text = "Якщо ви маєте USB мишу або клавіатуру, керування тимчасово";
+            // 
+            // pb_clear
+            // 
+            this.pb_clear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pb_clear.Image = ((System.Drawing.Image)(resources.GetObject("pb_clear.Image")));
+            this.pb_clear.Location = new System.Drawing.Point(358, 17);
+            this.pb_clear.Name = "pb_clear";
+            this.pb_clear.Size = new System.Drawing.Size(110, 73);
+            this.pb_clear.TabIndex = 1;
+            this.pb_clear.TabStop = false;
+            this.pb_clear.Click += new System.EventHandler(this.pb_clear_Click);
+            this.pb_clear.MouseEnter += new System.EventHandler(this.pb_clear_MouseEnter);
+            this.pb_clear.MouseLeave += new System.EventHandler(this.pb_clear_MouseLeave);
             // 
             // lb_1_4
             // 
@@ -150,6 +163,31 @@
             this.gb_3.TabIndex = 16;
             this.gb_3.TabStop = false;
             this.gb_3.Text = "3. Заблокувати USB порти";
+            // 
+            // pb_unlock
+            // 
+            this.pb_unlock.Image = ((System.Drawing.Image)(resources.GetObject("pb_unlock.Image")));
+            this.pb_unlock.Location = new System.Drawing.Point(358, 19);
+            this.pb_unlock.Name = "pb_unlock";
+            this.pb_unlock.Size = new System.Drawing.Size(109, 73);
+            this.pb_unlock.TabIndex = 2;
+            this.pb_unlock.TabStop = false;
+            this.pb_unlock.Click += new System.EventHandler(this.pb_unlock_Click);
+            this.pb_unlock.MouseEnter += new System.EventHandler(this.pb_unlock_MouseEnter);
+            this.pb_unlock.MouseLeave += new System.EventHandler(this.pb_unlock_MouseLeave);
+            // 
+            // pb_lock
+            // 
+            this.pb_lock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pb_lock.Image = ((System.Drawing.Image)(resources.GetObject("pb_lock.Image")));
+            this.pb_lock.Location = new System.Drawing.Point(358, 19);
+            this.pb_lock.Name = "pb_lock";
+            this.pb_lock.Size = new System.Drawing.Size(110, 73);
+            this.pb_lock.TabIndex = 1;
+            this.pb_lock.TabStop = false;
+            this.pb_lock.Click += new System.EventHandler(this.pb_lock_Click);
+            this.pb_lock.MouseEnter += new System.EventHandler(this.pb_lock_MouseEnter);
+            this.pb_lock.MouseLeave += new System.EventHandler(this.pb_lock_MouseLeave);
             // 
             // lb_3_1
             // 
@@ -222,44 +260,6 @@
             this.gb_2.TabIndex = 14;
             this.gb_2.TabStop = false;
             this.gb_2.Text = "2. Встановити дозволені USB пристрої";
-            // 
-            // pb_clear
-            // 
-            this.pb_clear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_clear.Image = ((System.Drawing.Image)(resources.GetObject("pb_clear.Image")));
-            this.pb_clear.Location = new System.Drawing.Point(358, 17);
-            this.pb_clear.Name = "pb_clear";
-            this.pb_clear.Size = new System.Drawing.Size(110, 73);
-            this.pb_clear.TabIndex = 1;
-            this.pb_clear.TabStop = false;
-            this.pb_clear.Click += new System.EventHandler(this.pb_clear_Click);
-            this.pb_clear.MouseEnter += new System.EventHandler(this.pb_clear_MouseEnter);
-            this.pb_clear.MouseLeave += new System.EventHandler(this.pb_clear_MouseLeave);
-            // 
-            // pb_unlock
-            // 
-            this.pb_unlock.Image = ((System.Drawing.Image)(resources.GetObject("pb_unlock.Image")));
-            this.pb_unlock.Location = new System.Drawing.Point(358, 19);
-            this.pb_unlock.Name = "pb_unlock";
-            this.pb_unlock.Size = new System.Drawing.Size(109, 73);
-            this.pb_unlock.TabIndex = 2;
-            this.pb_unlock.TabStop = false;
-            this.pb_unlock.Click += new System.EventHandler(this.pb_unlock_Click);
-            this.pb_unlock.MouseEnter += new System.EventHandler(this.pb_unlock_MouseEnter);
-            this.pb_unlock.MouseLeave += new System.EventHandler(this.pb_unlock_MouseLeave);
-            // 
-            // pb_lock
-            // 
-            this.pb_lock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_lock.Image = ((System.Drawing.Image)(resources.GetObject("pb_lock.Image")));
-            this.pb_lock.Location = new System.Drawing.Point(358, 19);
-            this.pb_lock.Name = "pb_lock";
-            this.pb_lock.Size = new System.Drawing.Size(110, 73);
-            this.pb_lock.TabIndex = 1;
-            this.pb_lock.TabStop = false;
-            this.pb_lock.Click += new System.EventHandler(this.pb_lock_Click);
-            this.pb_lock.MouseEnter += new System.EventHandler(this.pb_lock_MouseEnter);
-            this.pb_lock.MouseLeave += new System.EventHandler(this.pb_lock_MouseLeave);
             // 
             // toolStrip1
             // 
@@ -336,14 +336,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gb_1_1.ResumeLayout(false);
             this.gb_1_1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_clear)).EndInit();
             this.gb_3.ResumeLayout(false);
             this.gb_3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_lock)).EndInit();
             this.menu_tray.ResumeLayout(false);
             this.gb_2.ResumeLayout(false);
             this.gb_2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_clear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_unlock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_lock)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

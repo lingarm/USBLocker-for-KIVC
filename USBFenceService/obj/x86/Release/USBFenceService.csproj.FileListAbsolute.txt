@@ -1,0 +1,7 @@
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\bin\Release\USBFenceService.exe
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\bin\Release\USBFenceService.pdb
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\obj\x86\Release\USBFenceService.ProjectInstaller.resources
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\obj\x86\Release\USBFenceService.Service1.resources
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\obj\x86\Release\USBFenceService.csproj.GenerateResource.Cache
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\obj\x86\Release\USBFenceService.exe
+C:\Users\Sunny\Documents\Visual Studio 2010\Projects\USBFence\USBFenceService\obj\x86\Release\USBFenceService.pdb

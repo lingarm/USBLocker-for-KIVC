@@ -12,6 +12,8 @@ using Microsoft.Win32;
 using System.Resources;
 using System.Security.AccessControl;
 
+using System.Diagnostics;
+
 namespace USBFence
 {
     public partial class Form1 : Form
@@ -101,20 +103,25 @@ namespace USBFence
 
         private void pb_clear_Click(object sender, EventArgs e)
         {
+            string test = "";
             string[] keys = {
                                 "SYSTEM\\ControlSet001\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
                                 "SYSTEM\\ControlSet002\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
                                 "SYSTEM\\CurrentControlSet\\Control\\DeviceClasses\\{53f56307-b6bf-11d0-94f2-00a0c91efb8b}",
                                 "SYSTEM\\CurrentControlSet\\Enum\\USBSTOR",
                                 "SYSTEM\\ControlSet001\\Enum\\USBSTOR",
-                                "SYSTEM\\ControlSet002\\Enum\\USBSTOR"
+                                "SYSTEM\\ControlSet002\\Enum\\USBSTOR",
+                                "SYSTEM\\CurrentControlSet\\Enum\\USB",
+                                "SYSTEM\\ControlSet001\\Enum\\USB",
+                                "SYSTEM\\ControlSet002\\Enum\\USB"
                             };
             string user = Environment.UserDomainName + "\\" + Environment.UserName;
+            test += user + "\n";
             RegistryKey reg = null;
             RegistrySecurity rs = new RegistrySecurity();
             rs.AddAccessRule(
                         new RegistryAccessRule(user,
-                        RegistryRights.Delete,
+                        RegistryRights.ReadKey | RegistryRights.Delete,
                         InheritanceFlags.None,
                         PropagationFlags.None,
                         AccessControlType.Allow
@@ -122,34 +129,42 @@ namespace USBFence
 
             foreach (string k in keys)
             {
-                try
-                {
-                    reg = Registry.LocalMachine.OpenSubKey(k, true);
-                    reg.SetAccessControl(rs);
+                test += k + "\n";
+                reg = Registry.LocalMachine.OpenSubKey(k);
+                    //reg.SetAccessControl(rs);
                     //MessageBox.Show("Permission changed");
                     if (reg != null)
                     {
                         foreach (string name in reg.GetSubKeyNames())
+                        //string[] names = reg.GetSubKeyNames();
+                        //foreach (string name in names) { MessageBox.Show(name); }
+                        //foreach(string name in names)
                         {
+                            test += name + "\n";
                             //MessageBox.Show(name);
                             if (k.Contains("Enum") && !name.StartsWith("Disk"))
                             {
                                 continue;
                             }
-                            reg.DeleteSubKeyTree(name, true);
+                            //reg.DeleteSubKeyTree(name, true);
+                            //reg.DeleteSubKeyTree(k, true);
                             //Вести лог удаленных разделов реестра
                         }
                     }
+                        try
+                        {
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
                 }
                 finally
                 {
                     //MessageBox.Show("finally");
                 }
             }
+
+            MessageBox.Show(test);
         }
 
         private void pb_lock_Click(object sender, EventArgs e)
